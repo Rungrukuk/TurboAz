@@ -2,12 +2,11 @@
 
 session_start();
 
-include "../TurboAz/php/db_conn.php";
+/*include "../TurboAz/php/db_conn.php";
 $sql = "SELECT * FROM carinfo WHERE status = 1";
 $stmt = $conn->prepare($sql);
-$stmt->execute();
-$counter = $stmt->rowCount();
-$maxNumberOfAnn = 15;
+$stmt->execute();*/
+
 $x = 1;
 ?>
 
@@ -35,9 +34,9 @@ $x = 1;
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-  <?php 
+  <?php /* 
 
-  function createDiv($counter,$maxNumberOfAnn,$x){
+  /*function createDiv($counter,$maxNumberOfAnn,$x){
   include "../TurboAz/php/db_conn.php";
     if($counter>0){ 
 
@@ -45,16 +44,16 @@ $x = 1;
        $stmt = $conn->prepare($sql);
        $stmt->execute([$counter]);
        $car = $stmt->fetch();
-       $emailsql =  $car['email'];
-       $marka =  $car['marka'];
-       $model =  $car['model'];
-       $yurus =  $car['yurus'];
-       $qiymet =  $car['qiymet'];
-       $buraxilisili =  $car['buraxilisili'];
-       $muherrikinhecmi =  $car['muherrikinhecmi'];
-       $imgname =  $car['img_name'];
-       $status =  $car['status'];
-       $id = $car['id'];
+       $emailsql ??=  $car['email'];
+       $marka ??=  $car['marka'];
+       $model ??=  $car['model'];
+       $yurus ??=  $car['yurus'];
+       $qiymet ??=  $car['qiymet'];
+       $buraxilisili ??=  $car['buraxilisili'];
+       $muherrikinhecmi ??=  $car['muherrikinhecmi'];
+       $imgname ??=  $car['img_name'];
+       $status ??=  $car['status'];
+       $id ??= $car['id'];
          if($status==1){
             ?>
               <a href = "carinfo.php?id<?php echo $x?>=<?php echo $id?>" class="card" style="cursor: pointer; ">
@@ -68,6 +67,37 @@ $x = 1;
                 </div>
          </a>
 <?php  }}}?>
+function createDiv($counter,$maxNumberOfAnn,$x){
+  include "../TurboAz/php/db_conn.php";
+    if($counter>0){ 
+
+       $sql = "SELECT * FROM carinfo WHERE id = ?";
+       $stmt = $conn->prepare($sql);
+       $stmt->execute([$counter]);
+       $car = $stmt->fetch();
+       $emailsql ??=  $car['email'];
+       $marka ??=  $car['marka'];
+       $model ??=  $car['model'];
+       $yurus ??=  $car['yurus'];
+       $qiymet ??=  $car['qiymet'];
+       $buraxilisili ??=  $car['buraxilisili'];
+       $muherrikinhecmi ??=  $car['muherrikinhecmi'];
+       $imgname ??=  $car['img_name'];
+       $status ??=  $car['status'];
+       $id ??= $car['id'];
+         if($status==1){
+            ?>
+              <a href = "carinfo.php?id<?php echo $x?>=<?php echo $id?>" class="card" style="cursor: pointer; ">
+              <img src="images/<?php echo $imgname ?>" alt="" style="height: 250px ;"/>
+                <div class="card-info " style="color: black;" >
+                  <p><?php echo $qiymet ?> $</p>
+                  <p><?php echo $marka?>,<?php echo $model ?></p>
+                  <p><?php echo $buraxilisili?>,<?php echo $muherrikinhecmi ?>,<?php echo $yurus ?></p>
+                  <p>Baki,19.03.2022 16:16</p>
+                  <p><?php echo $emailsql ?></p>
+                </div>
+         </a>
+<?php  }}}*/?>
     <!--Header-->
     <header>
       <div class="row cont">
@@ -264,7 +294,7 @@ $x = 1;
     <div class="cards-section">
       <div class="cont mt-4 cards g-0 main-content">
       <?php 
-      while ($maxNumberOfAnn >0) {
+      /*while ($maxNumberOfAnn >0) {
         if($counter>0){
           createDiv($counter,$maxNumberOfAnn,$x);
           $counter = $counter - 1; $maxNumberOfAnn = $maxNumberOfAnn - 1;
@@ -273,8 +303,39 @@ $x = 1;
         else
         break;
 
-      }
-      ?>
+      }*/
+      include "../TurboAz/php/db_conn.php";
+      $sql = "SELECT * FROM carinfo WHERE status = ?";
+      $stmt = $conn->prepare($sql);
+      $status = 1;
+      $stmt->execute([$status]);
+      $cars_data = $stmt->fetch();
+
+      $counter = $stmt->rowCount();
+      //echo $counter;
+      if($counter>0 && is_array($cars)){
+        foreach($cars as $car)
+        {
+          $x+=1;
+
+  
+            ?>
+              <a href = "carinfo.php?id<?php echo $x?>=<?php echo  isset($car['id']) ? $car['id'] : 0 ?>" class="card" style="cursor: pointer; ">
+              <img src="images/<?php echo isset($car['img_name']) ? $car['img_name'] : 0  ?>" alt="" style="height: 250px ;"/>
+                <div class="card-info " style="color: black;" >
+                  <p><?php echo isset($car['qiymet']) ?$car['qiymet'] :0 ?> $</p>
+                  <p><?php echo isset($car['marka']) ?$car['marka'] :0;?>,<?php  echo isset($car['model']) ?$car['model'] :0 ; ?></p>
+                  <p><?php echo isset($car['buraxilisili']) ?$car['buraxilisili'] :0 ;?>,<?php echo isset($car['muherrikinhecmi']) ?$car['muherrikinhecmi'] :0;?>,<?php echo isset($car['yurus']) ?$car['yurus'] :0; ?></p>
+                  <p>Baki,19.03.2022 16:16</p>
+                  <p><?php echo isset($car['email']) ?$car['email'] :0; ?></p>
+                </div>
+         </a>
+         
+        <?php
+        }
+      }?>
+      
+      
 
       </div>
     </div>
