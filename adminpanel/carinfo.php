@@ -11,7 +11,7 @@
 				<thead>
 				<tr>
 							<th>Id</th>
-			<a href="";><th>Email</th></a>
+			<th>Email</th>
 			<th>Marka</th>
 			<th>Model</th>
 			<th>Bannovu</th>
