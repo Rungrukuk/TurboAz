@@ -11,7 +11,7 @@
 				<thead>
 				<tr>
 							<th>Id</th>
-			<th>Email</th>
+			<a href="";><th>Email</th></a>
 			<th>Marka</th>
 			<th>Model</th>
 			<th>Bannovu</th>
@@ -40,7 +40,7 @@
 					?>
 					<tr>
 		<td><?php echo $carinfos['id']?></td>
-		<td><?php echo $carinfos['email']?></td>
+		<td><a href = "show-Images.php?index=<?php echo $carinfos['id']?>"><?php echo $carinfos['email']?></a></td>
 		<td><?php echo $carinfos['marka']?></td>
 		<td><?php echo $carinfos['model']?></td>
 		<td><?php echo $carinfos['bannovu']?></td>
