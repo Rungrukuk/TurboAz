@@ -25,13 +25,16 @@
 
 </head>
 <body>
-<form method="post" action="confirm-listing.php" enctype='multipart/form-data'>
-    <?php
-        include "../php/db_conn.php";
+<?php
+        
         if( isset($_GET['index']))
         {
             $id = $_GET['index'];
         }
+        ?>
+<form method="post" action="confirm-listing.php?id=<?php echo $id ?>" enctype='multipart/form-data'>
+<?php
+        include "../php/db_conn.php";
         $sql = "SELECT * FROM carinfo WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$id]);
@@ -51,13 +54,7 @@
         $suretqutusu =  $car['suretqutusu'];
         $reng =  $car['reng'];
         $muherrikingucu =  $car['muherrikingucu'];
-        /*echo "<img src='images/$imgname' style='height: 200px; width: 400px;'>"; 
-        echo "<br>"; 
-        echo "<br>"; 
-        echo "<img src='images/$imgname2' style='height: 200px; width: 400px;'>"; 
-        echo "<br>"; 
-        echo "<br>"; 
-        */
+
 
     ?>
     <div style="margin-left: 15%;">
