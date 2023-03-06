@@ -109,7 +109,7 @@ session_start();
       </div>
     </div>
     <!--Main Content-->
-    <form enctype="multipart/form-data" method = "post" action="php/check_infos.php" class="cont">
+    <form enctype='multipart/form-data' method = "post" action="php/check_infos.php" class="cont">
       <?php if(isset($_GET['error'])){ 
           ?>
     	  	<div class="alert alert-danger" role="alert">
@@ -291,7 +291,7 @@ session_start();
         <textarea name="elavemelumat" id="" cols="89" rows="4"></textarea>
       </div>
       <h2>Şəkiller</h2>
-      <input class="form-control" type="file" name="uploaded_image" value="" />
+      <input class="form-control" type="file" name="uploads[]" multiple />
       <section class="add-img">
         <ul>
           <li>

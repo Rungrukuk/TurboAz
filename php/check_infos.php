@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 if(
     isset($_POST['marka'])
     &&isset($_POST['model'])
@@ -64,6 +66,15 @@ if(
         header("Location: ../addannounc.php?error=Mühərrikin gücü doldurulmalıdır doldurulmalıdır");
         exit;
     }
+    $count = 0;
+    foreach($_FILES["uploads"]["name"] as $key => $name){
+        $count++;
+    }
+    if($count!=2){
+        header("Location: ../addannounc.php?error= 2 şəkil seçilməlidir");
+        exit;
+    }
+    
 
     include "../php/db_conn.php";
     $email = $_SESSION["useremail"];
@@ -79,35 +90,44 @@ if(
     $muherrikinhecmi = $_POST['muherrikinhecmi'];
     $qiymet = $_POST['qiymet'];
     $muherrikingucu = $_POST['muherrikingucu'];
-    $image_name = $_FILES["uploaded_image"]["name"];
-    $temp_image_name = $_FILES["uploaded_image"]["tmp_name"];
-    $folder = "../adminpanel/images/".$image_name;
+
+    $image_names = array();
     if(!empty($_POST['elavemelumat'])){
         $elavemelumat = $_POST['elavemelumat'];
     }
     else{
         $elavemelumat = "";
     }
-    
+    $count = 0;
+    foreach($_FILES["uploads"]["name"] as $key => $name){
+        
+        try {
+            move_uploaded_file($_FILES["uploads"]["tmp_name"][$key],"../adminpanel/images/".$name);
+        } catch (\Throwable $th) {
+            header("Location: ../addannounc.php?error=Şəkil yüklənmədi");
+            exit;
+        }
+        
+        $image_names[$count] = $name;
+        $count++;
+        
+    }
+
     $sql = "INSERT INTO carinfo(email,marka,model,bannovu,yurus,reng,qiymet,yanacaq,
-    oturucu,suretqutusu,buraxilisili,muherrikinhecmi,muherrikingucu,elavemelumat,img_name) 
-    	        VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    oturucu,suretqutusu,buraxilisili,muherrikinhecmi,muherrikingucu,elavemelumat,img_name0,img_name1) 
+    	        VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$email,$marka,$model,$bannovu,$yurus,$reng,$qiymet,$yanacaq,
-    $oturucu,$suretqutusu,$buraxilisili,$muherrikinhecmi,$muherrikingucu,$elavemelumat,$image_name]);
-    if(move_uploaded_file($temp_image_name,$folder)){
-        header("Location: ../addannounc.php?success=Ugurlu emeliyyat");
-        exit;
-    }
-    else{
-        header("Location: ../addannounc.php?error=Şəkil yüklənmədi");
-        exit;
-    }
+    $oturucu,$suretqutusu,$buraxilisili,$muherrikinhecmi,$muherrikingucu,$elavemelumat,$image_names[0],$image_names[1]]);
+
+    
+    header("Location: ../addannounc.php?success=Uğurlu Əməliyyat");
 
 
     
 }
-else{
+else
+{
     
 
     header("Location: ../addannounc.php?error=Xəta");
