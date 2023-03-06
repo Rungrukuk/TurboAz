@@ -305,16 +305,10 @@ function createDiv($counter,$maxNumberOfAnn,$x){
 
       }*/
       include "../TurboAz/php/db_conn.php";
-      $sql = "SELECT * FROM carinfo WHERE status = ?";
-      $stmt = $conn->prepare($sql);
-      $status = 1;
-      $stmt->execute([$status]);
-      $cars_data = $stmt->fetch();
-
-      $counter = $stmt->rowCount();
-      //echo $counter;
-      if($counter>0 && is_array($cars)){
-        foreach($cars as $car)
+      $sql = "SELECT * FROM carinfo WHERE status = 1";
+      $result = $conn->query($sql);
+      if($result->rowCount()>0){
+        while($car = $result->fetch(PDO::FETCH_ASSOC))
         {
           $x+=1;
 
