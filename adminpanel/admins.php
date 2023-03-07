@@ -27,31 +27,29 @@ include "includes/header.php";
 	<?php
 	$admins = getAll("admins");
 	if ($admins)
-		foreach ($admins as $adminss):
-			?>
-			<tr>
-				<td>
-					<?php echo $adminss['id'] ?>
-				</td>
-				<td>
-					<?php echo $adminss['name'] ?>
-				</td>
-				<td>
-					<?php echo $adminss['email'] ?>
-				</td>
-				<td>
-					<?php echo $adminss['password'] ?>
-				</td>
-				<td>
-					<?php echo $adminss['role'] ?>
-				</td>
+		foreach ($admins as $adminss) :
+	?>
+		<tr>
+			<td>
+				<?php echo $adminss['id'] ?>
+			</td>
+			<td>
+				<?php echo $adminss['name'] ?>
+			</td>
+			<td>
+				<?php echo $adminss['email'] ?>
+			</td>
+			<td>
+				<?php echo $adminss['password'] ?>
+			</td>
+			<td>
+				<?php echo $adminss['role'] ?>
+			</td>
 
 
-				<td><a href="edit-admins.php?act=edit&id=<?php echo $adminss['id'] ?>"><i
-							class="glyphicon glyphicon-edit"></i></a></td>
-				<td><a href="save.php?act=delete&id=<?php echo $adminss['id'] ?>&cat=admins"
-						onclick="return navConfirm(this.href);"><i class="glyphicon glyphicon-trash"></i></a></td>
-			</tr>
-		<?php endforeach; ?>
+			<td><a href="edit-admins.php?act=edit&id=<?php echo $adminss['id'] ?>"><i class="glyphicon glyphicon-edit"></i></a></td>
+			<td><a href="save.php?act=delete&id=<?php echo $adminss['id'] ?>&cat=admins" onclick="return navConfirm(this.href);"><i class="glyphicon glyphicon-trash"></i></a></td>
+		</tr>
+	<?php endforeach; ?>
 </table>
 <?php include "includes/footer.php"; ?>

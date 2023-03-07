@@ -108,7 +108,6 @@ if (
 
         $image_names[$count] = $name;
         $count++;
-
     }
 
     $sql = "INSERT INTO carinfo(email,marka,model,bannovu,yurus,reng,qiymet,yanacaq,
@@ -134,9 +133,6 @@ if (
 
 
     header("Location: ../addannounc.php?success=Uğurlu Əməliyyat");
-
-
-
 } else {
 
 
