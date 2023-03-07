@@ -41,21 +41,17 @@ if (
                header("Location: ../login.php?error=$em");
                exit;
             }
-
          } else {
             $em = "Email yanlışdır";
             header("Location: ../login.php?error=$em");
             exit;
          }
-
       } else {
          $em = "Email vəya şifrə yanlışdır";
          header("Location: ../login.php?error=$em&");
          exit;
       }
    }
-
-
 } else {
    header("Location: ../login.php?error=Xəta");
    exit;

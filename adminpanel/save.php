@@ -77,4 +77,3 @@ if ($cat == "userinfo" || $cat_get == "userinfo") {
 	}
 	header("location:" . "userinfo.php");
 }
-?>

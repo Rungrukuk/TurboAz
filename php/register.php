@@ -75,4 +75,3 @@ if (
     header("Location: ../login.php?error=error");
     exit;
 }
-?>

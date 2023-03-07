@@ -28,34 +28,32 @@ include "includes/header.php";
 	<?php
 	$userinfo = getAll("userinfo");
 	if ($userinfo)
-		foreach ($userinfo as $userinfos):
-			?>
-			<tr>
-				<td>
-					<?php echo $userinfos['id'] ?>
-				</td>
-				<td>
-					<?php echo $userinfos['fullname'] ?>
-				</td>
-				<td>
-					<?php echo $userinfos['email'] ?>
-				</td>
-				<td>
-					<?php echo $userinfos['number'] ?>
-				</td>
-				<td>
-					<?php echo $userinfos['city'] ?>
-				</td>
-				<td>
-					<?php echo $userinfos['password'] ?>
-				</td>
+		foreach ($userinfo as $userinfos) :
+	?>
+		<tr>
+			<td>
+				<?php echo $userinfos['id'] ?>
+			</td>
+			<td>
+				<?php echo $userinfos['fullname'] ?>
+			</td>
+			<td>
+				<?php echo $userinfos['email'] ?>
+			</td>
+			<td>
+				<?php echo $userinfos['number'] ?>
+			</td>
+			<td>
+				<?php echo $userinfos['city'] ?>
+			</td>
+			<td>
+				<?php echo $userinfos['password'] ?>
+			</td>
 
 
-				<td><a href="edit-userinfo.php?act=edit&id=<?php echo $userinfos['id'] ?>"><i
-							class="glyphicon glyphicon-edit"></i></a></td>
-				<td><a href="save.php?act=delete&id=<?php echo $userinfos['id'] ?>&cat=userinfo"
-						onclick="return navConfirm(this.href);"><i class="glyphicon glyphicon-trash"></i></a></td>
-			</tr>
-		<?php endforeach; ?>
+			<td><a href="edit-userinfo.php?act=edit&id=<?php echo $userinfos['id'] ?>"><i class="glyphicon glyphicon-edit"></i></a></td>
+			<td><a href="save.php?act=delete&id=<?php echo $userinfos['id'] ?>&cat=userinfo" onclick="return navConfirm(this.href);"><i class="glyphicon glyphicon-trash"></i></a></td>
+		</tr>
+	<?php endforeach; ?>
 </table>
 <?php include "includes/footer.php"; ?>

@@ -10,4 +10,3 @@ $sql = "UPDATE carinfo SET status='1' WHERE id=$id";
 $conn->query($sql) === TRUE;
 
 header("Location: carinfo.php");
-?>

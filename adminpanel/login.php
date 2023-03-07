@@ -14,4 +14,3 @@ if (mysqli_affected_rows($link) == 0) {
 	$_SESSION['sess_admin_login'] = $row['id'];
 	echo json_encode(array('status' => 'success', 'message' => 'Logging in'));
 }
-?>
