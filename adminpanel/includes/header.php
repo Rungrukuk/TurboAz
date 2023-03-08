@@ -16,7 +16,7 @@
 				<meta name="description" content="Mass Admin Panel">
 				<title>Turboaz Admin Panel</title>
 				<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-h21C2fcDk/eFsW9sC9h0dhokq5pDinLNklTKoxIZRUn3+hvmgQSffLLQ4G4l2eEr" crossorigin="anonymous">
-
+				<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 				<!-- Custom CSS -->
 				<link rel="stylesheet" href="includes/style.css">
 				<link href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -31,10 +31,10 @@
 
 			<body>
 
-			<div class="wrapper">
+			<div style="font-size: medium" class="wrapper">
 				<!-- Sidebar Holder -->
-				<nav id="sidebar" class="bg-primary">
-					<div class="sidebar-header">
+				<nav style="font-size: medium" id="sidebar" class="bg-primary">
+					<div style="font-size: medium" class="sidebar-header">
 						<h3>
 							Turboaz Admin Panel<br>
 							<i id="sidebarCollapse" class="glyphicon glyphicon-circle-arrow-left"></i>

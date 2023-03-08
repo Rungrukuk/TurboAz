@@ -2,38 +2,50 @@
 include "includes/header.php";
 ?>
 
-<a class="btn btn-primary" href="edit-carinfo.php?act=add"> <i class="glyphicon glyphicon-plus-sign"></i> Add New
+<a style="font-size: large" class="btn btn-primary" href="edit-carinfo.php?act=add"> <i class="glyphicon glyphicon-plus-sign"></i> Add New
 	Carinfo</a>
 
-<h1>Carinfo</h1>
-<p>This table includes
+<h1 style="font-size: 25px">Carinfo</h1>
+<p style="font-size: 20px">This table includes
 	<?php echo counting("carinfo", "id"); ?> carinfo.
 </p>
+<?php if (isset($_GET['error'])) {
+    ?>
+      <div style="font-size: medium; width: 9.3%" class="alert alert-danger" role="alert">
+        <?php echo $_GET['error']; ?>
+      </div>
+    <?php } ?>
+    <?php if (isset($_GET['success'])) { ?>
+      <div style="font-size: medium; width: 8.5%" class="alert alert-success" role="alert">
+        <?php echo $_GET['success']; ?>
+      </div>
+    <?php } ?>
 
-<table id="sorted" class="table table-striped table-bordered">
-	<thead>
-		<tr>
-			<th>Id</th>
-			<th>Email</th>
-			<th>Marka</th>
-			<th>Model</th>
-			<th>Bannovu</th>
-			<th>Yurus</th>
-			<th>Reng</th>
-			<th>Qiymet</th>
-			<th>Yanacaq</th>
-			<th>Oturucu</th>
-			<th>Suretqutusu</th>
-			<th>Buraxilisili</th>
-			<th>Muherrikinhecmi</th>
-			<th>Muherrikingucu</th>
-			<th>Elavemelumat</th>
-			<th>Img name</th>
-			<th>Status</th>
-			<th>Img name2</th>
 
-			<th class="not">Edit</th>
-			<th class="not">Delete</th>
+<table style="font-size: large" id="sorted" class="table table-striped table-bordered">
+	<thead style="font-size: large" style="height: 30px;">
+		<tr style="font-size: large">
+			<th style="font-size:11px">Id</th>
+			<th style="font-size:11px">Email</th>
+			<th style="font-size:11px">Marka</th>
+			<th style="font-size:11px">Model</th>
+			<th style="font-size:11px">Bannovu</th>
+			<th style="font-size:11px">Yurus</th>
+			<th style="font-size:11px">Reng</th>
+			<th style="font-size:11px">Qiymet</th>
+			<th style="font-size:11px">Yanacaq</th>
+			<th style="font-size:11px">Oturucu</th>
+			<th style="font-size:11px">Suretqutusu</th>
+			<th style="font-size:11px">Buraxilisili</th>
+			<th style="font-size:11px">Muherrikinhecmi</th>
+			<th style="font-size:11px">Muherrikingucu</th>
+			<th style="font-size:11px">Elavemelumat</th>
+			<th style="font-size:11px">Img name</th>
+			<th style="font-size:11px">Status</th>
+			<th style="font-size:11px">Img name2</th>
+
+			<th style="font-size:11px" class="not">Edit</th>
+			<th style="font-size:11px" class="not">Delete</th>
 		</tr>
 	</thead>
 
@@ -43,56 +55,56 @@ include "includes/header.php";
 		foreach ($carinfo as $carinfos) :
 	?>
 		<tr>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['id'] ?>
 			</td>
-			<td><a href="show-Images.php?index=<?php echo $carinfos['id'] ?>"><?php echo $carinfos['email'] ?></a></td>
-			<td>
+			<td style="font-size:15px"><a href="show-Images.php?index=<?php echo $carinfos['id'] ?>"><?php echo $carinfos['email'] ?></a></td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['marka'] ?>
-			</td>
-			<td>
+			</td >
+			<td style="font-size:15px">
 				<?php echo $carinfos['model'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['bannovu'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['yurus'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['reng'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['qiymet'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['yanacaq'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['oturucu'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['suretqutusu'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['buraxilisili'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['muherrikinhecmi'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['muherrikingucu'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['elavemelumat'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['img_name'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['status'] ?>
 			</td>
-			<td>
+			<td style="font-size:15px">
 				<?php echo $carinfos['img_name2'] ?>
 			</td>
 
