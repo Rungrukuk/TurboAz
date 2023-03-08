@@ -111,7 +111,7 @@ if (
     }
 
     $sql = "INSERT INTO carinfo(email,marka,model,bannovu,yurus,reng,qiymet,yanacaq,
-    oturucu,suretqutusu,buraxilisili,muherrikinhecmi,muherrikingucu,elavemelumat,img_name0,img_name1) 
+    oturucu,suretqutusu,buraxilisili,muherrikinhecmi,muherrikingucu,elavemelumat,img_name,img_name2) 
     	        VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
