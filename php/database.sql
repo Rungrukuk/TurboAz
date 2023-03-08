@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2023 at 05:23 PM
+-- Generation Time: Mar 08, 2023 at 03:53 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.4
 
@@ -14,6 +14,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `turboaz`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `password`, `role`) VALUES
+(1, 'Admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1);
 
 -- --------------------------------------------------------
 
@@ -47,13 +68,8 @@ CREATE TABLE `carinfo` (
 --
 
 INSERT INTO `carinfo` (`id`, `email`, `marka`, `model`, `bannovu`, `yurus`, `reng`, `qiymet`, `yanacaq`, `oturucu`, `suretqutusu`, `buraxilisili`, `muherrikinhecmi`, `muherrikingucu`, `elavemelumat`, `img_name`, `status`, `img_name2`) VALUES
-(4, 'tgrl@gmail.com', 'toyota', 'ae86', 'sedan', '0km', 'ag', '150000', 'benzin', 'on', 'mexaniki', '1986', '4l', '300', 'Togrulun masini', 'toyotaae.png', 1, 'toyotaae1.jpg'),
-(6, 'yusif@gmail.com', 'zapi', '89', 'sedan', '120000', 'sari', '1000', 'dizel', 'arxa', 'mexaniki', '1989', '2l', '150', 'yusifin emaneti', 'zapi.jpg', 1, 'zapi1.jpg'),
-(7, 'Zelenski@gmail.com', 'Tank', 'kkt2002', 'tank', '0km', 'sari', '1000001', 'dizel', 'her ikisi', 'avtomat', '2002', '10l', '300', 'Zelenskinin oz tanki barter var', 'tank.jpg', 1, 'tank1.jpg'),
-(5, 'elesger@gmail.com', 'batmobile', 'io', 'sedan', '0km', 'qara', '999999', 'dizel', 'on', 'mexaniki', '2200', '7l', '600', 'batmabn Elesger', 'batmobile.jfif', 1, 'batmobile1.jpg'),
-(1, 'kamilo09ya@gmail.com', 'Lexus', 'Smth', 'sedan', '150,000 km', 'mavi', '300000', 'benzin', 'Arxa', 'Mexaniki', '2022', '2.5 L', '300', 'qezasiz', 'lexus.jpg', 1, 'lexus1.jpg'),
-(3, 'lkrimov54@gmail.com', 'ford', 'mustang', 'sedan', '0km', 'qara', '1000000', 'benzin', 'on', 'mexaniki', '1969', '3l', '300', 'Ela veziyyetdedir', 'FordMustang.jpg', 1, 'FordMustang1.jpg'),
-(2, 'kamal@gmail.com', 'BMW', 'i8', 'sedan', '350,000 km', 'qirmizi', '250000', 'benzin', 'Arxa', 'Mexaniki', '2020', '3.5 L', '300', 'ela veziyyetdedir', 'BMW-i8-Coupe-2020.jpg', 1, 'bmwi8.jpg');
+(14, 'nese@gmail.com', 'KIA', 'S Class', 'Avtobus', '1000', 'Qara', '500', 'Benzin', 'Arxa', 'Mexaniki', '2022', '50', '600', '', 'batmobile.jfif', 1, 'batmobile1.jpg'),
+(15, 'kamilo09ya@gmail.com', 'KIA', 'KIA', 'Kupe', '1000', 'Goy', '500', 'Benzin', 'On', 'Avtomat', '2019', '150', '700', 'Bomba Veziyyetdedir', 'FordMustang.jpg', 1, 'FordMustang1.jpg');
 
 -- --------------------------------------------------------
 
@@ -75,19 +91,24 @@ CREATE TABLE `userinfo` (
 --
 
 INSERT INTO `userinfo` (`id`, `fullname`, `email`, `number`, `city`, `password`) VALUES
-(6, 'Kamal Əzizov', 'kamilo09ya@gmail.com', '489', 'Sumqayıt', '$2y$10$OBhCI3ACvvppTFN2d5FJ1e3fhxVyL8MjrbDobjeQE4lWvY2qmUYg.'),
-(8, 'admin', 'admin@gmail.com', '748912', 'admin', '$2y$10$HgopiidueICGXS3c6TT5YeqzRL1ZGJo5Qlm20hFzbOaNWsElJwxBu'),
-(9, 'Togrul Suleymanov', 'tgrl@gmail.com', '4565', 'Baki', '$2y$10$0o1PSTsj8WLIkv9pW19cV.vdmyrPLVNCI1yF1jxsqPCW84JDjEp4m'),
-(10, 'Ali Kerimov', 'lkrimov54@gmail.com', '459', 'Baki', '$2y$10$TYN7x./t385AFeZf2ypNIetXp.siwwdJ2v7frm6utmrkgBMPwWVF.'),
-(11, 'Elesger Şükürzadə', 'elesger@gmail.com', '48597', 'Baki', '$2y$10$rQ3l1e8KfhE7I8f9iHDLoOIlgCX4lVvNt.ny/KvXeNj/IN6FDjag.'),
-(12, 'Yusif Hesenov', 'yusif@gmail.com', '756', 'Baki', '$2y$10$.jlTKXXAXZTmK5tj2MXOsONW7F.rVYvdTCvXOufHUB/OyXvqHjS7K'),
-(13, 'Zelenski pyotr', 'Zelenski@gmail.com', '7532', 'Krim', '$2y$10$KWxtwVVbJA8IT7GJpKPpiusjrbh9Od6e3DpE2EumkFmrpUkI.t7zi'),
-(14, 'Kamal Əzizov', 'kamal@gmail.com', '48645', 'Sumqayıt', '$2y$10$wNQgMe9B0oqOyv0c5FmW9eUmAD0E8Nzo23gmEFpJFmbkCUNRaG7ay'),
-(15, 'Kamal Əzizov', 'nese@gmail.com', '12564878', 'Sumqayıt', '$2y$10$VGuJrbguuNcRlNJpR80Yy.DagcxZ1SA3MWdqhWwl0FD8zmcgyCoAu');
+(15, 'Kamal Əzizov', 'nese@gmail.com', '12564878', 'Sumqayıt', '$2y$10$VGuJrbguuNcRlNJpR80Yy.DagcxZ1SA3MWdqhWwl0FD8zmcgyCoAu'),
+(16, 'Kamal Əzizov', 'kamilo09ya@gmail.com', '14', 'Sumqayıt', '$2y$10$8CVTDcfy1M1GEsU2RJXPpOMMLiXlG9kHbb427YexSPoRZAXCiMb7.');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `carinfo`
+--
+ALTER TABLE `carinfo`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `userinfo`
@@ -103,8 +124,20 @@ ALTER TABLE `userinfo`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `carinfo`
+--
+ALTER TABLE `carinfo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `userinfo`
 --
 ALTER TABLE `userinfo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
