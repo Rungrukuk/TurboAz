@@ -1,17 +1,15 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 session_start();
-
-/*include "../TurboAz/php/db_conn.php";
-$sql = "SELECT * FROM carinfo WHERE status = 1";
-$stmt = $conn->prepare($sql);
-$stmt->execute();*/
-
 $x = 1;
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <head>
   <meta charset="UTF-8" />
@@ -26,42 +24,23 @@ $x = 1;
 
 <body>
   <?php /* 
+=======
+>>>>>>> origin/main
 
-  /*function createDiv($counter,$maxNumberOfAnn,$x){
-  include "../TurboAz/php/db_conn.php";
-    if($counter>0){ 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turbo.az</title>
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-       $sql = "SELECT * FROM carinfo WHERE id = ?";
-       $stmt = $conn->prepare($sql);
-       $stmt->execute([$counter]);
-       $car = $stmt->fetch();
-       $emailsql ??=  $car['email'];
-       $marka ??=  $car['marka'];
-       $model ??=  $car['model'];
-       $yurus ??=  $car['yurus'];
-       $qiymet ??=  $car['qiymet'];
-       $buraxilisili ??=  $car['buraxilisili'];
-       $muherrikinhecmi ??=  $car['muherrikinhecmi'];
-       $imgname ??=  $car['img_name'];
-       $status ??=  $car['status'];
-       $id ??= $car['id'];
-         if($status==1){
-            ?>
-              <a href = "carinfo.php?id<?php echo $x?>=<?php echo $id?>" class="card" style="cursor: pointer; ">
-              <img src="images/<?php echo $imgname ?>" alt="" style="height: 250px ;"/>
-                <div class="card-info " style="color: black;" >
-                  <p><?php echo $qiymet ?> $</p>
-                  <p><?php echo $marka?>,<?php echo $model ?></p>
-                  <p><?php echo $buraxilisili?>,<?php echo $muherrikinhecmi ?>,<?php echo $yurus ?></p>
-                  <p>Baki,19.03.2022 16:16</p>
-                  <p><?php echo $emailsql ?></p>
-                </div>
-         </a>
-<?php  }}}?>
-function createDiv($counter,$maxNumberOfAnn,$x){
-  include "../TurboAz/php/db_conn.php";
-    if($counter>0){ 
+<body>
 
+<<<<<<< HEAD
        $sql = "SELECT * FROM carinfo WHERE id = ?";
        $stmt = $conn->prepare($sql);
        $stmt->execute([$counter]);
@@ -89,6 +68,8 @@ function createDiv($counter,$maxNumberOfAnn,$x){
                 </div>
          </a>
 <?php  }}}*/ ?>
+=======
+>>>>>>> origin/main
   <!--Header-->
   <header>
     <div class="row cont">
@@ -257,6 +238,7 @@ function createDiv($counter,$maxNumberOfAnn,$x){
   <div class="cards-section">
     <div class="cont mt-4 cards g-0 main-content">
       <?php
+<<<<<<< HEAD
       /*while ($maxNumberOfAnn >0) {
         if($counter>0){
           createDiv($counter,$maxNumberOfAnn,$x);
@@ -267,13 +249,16 @@ function createDiv($counter,$maxNumberOfAnn,$x){
         break;
 
       }*/
+=======
+>>>>>>> origin/main
       include "../TurboAz/php/db_conn.php";
-      $sql = "SELECT * FROM carinfo WHERE status = ?";
-      $stmt = $conn->prepare($sql);
-      $status = 1;
-      $stmt->execute([$status]);
-      $cars_data = $stmt->fetch();
+      $sql = "SELECT * FROM carinfo WHERE status = 1";
+      $result = $conn->query($sql);
+      if ($result->rowCount() > 0) {
+        while ($car = $result->fetch(PDO::FETCH_ASSOC)) {
+          $x += 1;
 
+<<<<<<< HEAD
       $counter = $stmt->rowCount();
       //echo $counter;
       if ($counter > 0 && is_array($cars)) {
@@ -281,6 +266,9 @@ function createDiv($counter,$maxNumberOfAnn,$x){
           $x += 1;
 
 
+=======
+
+>>>>>>> origin/main
       ?>
           <a href="carinfo.php?id<?php echo $x ?>=<?php echo  isset($car['id']) ? $car['id'] : 0 ?>" class="card" style="cursor: pointer; ">
             <img src="images/<?php echo isset($car['img_name']) ? $car['img_name'] : 0  ?>" alt="" style="height: 250px ;" />

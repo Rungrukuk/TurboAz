@@ -1,10 +1,13 @@
 <?php
-	error_reporting(0);
-	@session_start();
-	if(isset($_SESSION['sess_admin_login'])){header("location:"."home.php");}
+error_reporting(0);
+@session_start();
+if (isset($_SESSION['sess_admin_login'])) {
+	header("location:" . "home.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,12 +28,12 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
-    <script src="includes/login.js"></script>
-    
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+	<script src="includes/login.js"></script>
+
 </head>
 
 <body>
@@ -40,16 +43,17 @@
 				<h1 class="text-center">Admin Panel</h1>
 				<h2 class="text-center">Sign in</h2>
 				<div>
-                    <div id="error_login"></div>
+					<div id="error_login"></div>
 					<form id="login_form" method="post" name="login">
-					<input type="text" class="form-control" placeholder="Email" name="email" required autofocus><br>
-					<input type="password" class="form-control" placeholder="Password" name="password" required><br>
-					<button id="login_button" class="btn btn-lg btn-primary btn-block" type="submit">
-						Sign in</button>
+						<input type="text" class="form-control" placeholder="Email" name="email" required autofocus><br>
+						<input type="password" class="form-control" placeholder="Password" name="password" required><br>
+						<button id="login_button" class="btn btn-lg btn-primary btn-block" type="submit">
+							Sign in</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
+
 </html>
