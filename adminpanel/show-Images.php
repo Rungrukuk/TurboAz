@@ -8,8 +8,4 @@ $stmt = $conn->prepare($sql);
 $stmt->execute([$id]);
 $car = $stmt->fetch();
 $imgname =  $car['img_name'];
-echo "<img src='images/$imgname' >"; 
-    
-
-
-?>
+echo "<img src='images/$imgname' >";
