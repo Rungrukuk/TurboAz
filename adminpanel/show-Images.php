@@ -20,15 +20,6 @@
 
   if (isset($_GET['index'])) {
     $id = $_GET['index'];
-<<<<<<< HEAD
-}
-$sql = "SELECT * FROM carinfo WHERE id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->execute([$id]);
-$car = $stmt->fetch();
-$imgname =  $car['img_name'];
-echo "<img src='images/$imgname' >";
-=======
   }
   ?>
   <form method="post" action="confirm-listing.php?id=<?php echo $id ?>" enctype='multipart/form-data'>
@@ -138,4 +129,3 @@ echo "<img src='images/$imgname' >";
 </body>
 
 </html>
->>>>>>> origin/main
