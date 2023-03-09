@@ -194,7 +194,6 @@ $x = 1;
         while ($car = $result->fetch(PDO::FETCH_ASSOC)) {
           $x += 1;
 
-
       ?>
           <a href="carinfo.php?id<?php echo $x ?>=<?php echo  isset($car['id']) ? $car['id'] : 0 ?>" class="card" style="cursor: pointer; ">
             <img src="images/<?php echo isset($car['img_name']) ? $car['img_name'] : 0  ?>" alt="" style="height: 250px ;" />
